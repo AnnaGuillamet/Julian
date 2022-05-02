@@ -34,6 +34,7 @@ class MyBot(Channel):
                 self.bot.sendMessage(chat_id, "Continue")  
     
     def message(self,type,data,action):
+        txt = "Hi, the {} is {}, what will you do?"
         show_keyboard = {'keyboard':[[action,'Continue']]}
-        self.bot.sendMessage(2014190828, "Hi, the {type} is {data}, what will you do?", reply_markup=show_keyboard)
+        self.bot.sendMessage(2014190828, txt.format(type,data), reply_markup=show_keyboard)
 
