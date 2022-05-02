@@ -1,3 +1,7 @@
+#username: ProjectFarm_bot
+#API: 5297525041:AAHF0Po_JZdTEJODYj3idHS50LoAIPD8qqk
+# Chat_id = 2014190828
+
 from telepot.loop import MessageLoop
 import telepot
 import time

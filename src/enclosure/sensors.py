@@ -22,7 +22,7 @@ class TemperatureSensor(Sensor):
 
     def temperature(self,temperature):
         if temperature>= self.minim and temperature<= self.medium:
-            message = message('TemperatureEnclosure',temperature,ActionSensor.TemperatureEnclosure.value)
+            msg = self.telegram_client.message('TemperatureEnclosure',temperature,ActionSensor.TemperatureEnclosure.value)
     
         elif temperature>= self.medium and temperature<= self.maximum:
             self.telegram_client.getBot().sendMessage(2014190828, "Temperature alarm, fan is activited")
