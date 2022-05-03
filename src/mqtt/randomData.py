@@ -20,6 +20,17 @@ class Random():
         print("Temperature: {}".format(data))
         self.client.publish("sensors/temperature",data)
     
+    def smoke(self):
+        data = random.choice(['Low','Medium','High'])
+        print("Smoke: {}".format(data))
+        self.client.publish("sensors/smoke",data)
+    
+    def filament(self):
+        data = round(random.uniform(1,100),1)
+        print("Filament: {}".format(data))
+        self.client.publish("sensors/filament",data)
+
+    
 if __name__ == '__main__':
     rand = Random()
     broken_address = "localhost"
@@ -29,4 +40,6 @@ if __name__ == '__main__':
     while True:
         rand.temperature()
         rand.humidity()
+        rand.smoke()
+        rand.filament()
         time.sleep(10)

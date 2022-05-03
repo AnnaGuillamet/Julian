@@ -1,11 +1,8 @@
-separar telegram i arreglar channel.
-variables globals
+
 crear base de dades
 enviar base de dades
 pagina web
 acabar altres tipus de sensors
-afegir a random (smoke,filament)
-
 
 
 PREGUNTES:
