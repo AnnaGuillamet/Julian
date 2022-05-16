@@ -1,21 +1,31 @@
-from json.tool import main
-import yaml
-import json
+''' Julian
+Usage:
+    Julian control
+    Julian --help
+Julian is a sowfware for xxxxx
+'''
+import yaml, json
 import time
+import click
+import farm as f
 
-class Main(object):
-    def __init__(self):
-        super(Main, self).__init__
-        self._get_config()
-    
-    def _get_config(self):
-        with open("julian.yaml") as f:
-            self.cfg = yaml.load(f, Loader=yaml.FullLoader)
-        self.api = self.cfg["telegram"]["token"]
-        self.chatid = self.cfg["telegram"]["chat_id"]
+
+@click.command()
+@click.option("-c","--configuration", default="julian.yaml", type = click.Path("rb"), help="Configuration")
+def get_config(configuration):        
+    with open(configuration) as f:
+        cfg = yaml.load(f, Loader = yaml.FullLoader)
+        api = cfg["telegram"]["token"]
+        chatid = cfg["telegram"]["chat_id"]
+        f.close()
+    #print(cfg)
+    return cfg
 
 if __name__ == '__main__':
-    main = Main()
+    configuration = get_config.main(standalone_mode=False)
+    print('Configuration OK')
+    farm = f.Farm(configuration)
+    print ('Execució Programa OK')
 
     while 1:
-        time.sleep(5)
+       time.sleep(5)
