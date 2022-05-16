@@ -1,4 +1,4 @@
-from channel import Channel
-from telegram import MyBot
+from notifications.channel import Channel
+from notifications.telegram import MyBot
 
-__all__=["Channel", "Telegram"]
+__all__=["Channel", "MyBot"]
