@@ -6,7 +6,7 @@ class Sensor(object):
 
 class TemperatureSensor(Sensor):
     def __init__(self):
-        self.maximum_manually = 32.0
+        self.maximum_manually = 32.0 
         self.minim_manually  = 28.5
 
     def temperatureCheck(self,temperature):
