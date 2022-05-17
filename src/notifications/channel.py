@@ -1,8 +1,9 @@
 
 class Channel(object):
-    def __init__(self,cfg):
+    def __init__(self,token, chatId):
         super(Channel, self).__init__()
-        self.cfg = cfg
+        self.token = token
+        self.chatId = chatId
 
 
 

@@ -20,10 +20,10 @@ class Random():
         print("Temperature: {}".format(data))
         self.client.publish("sensors/temperature",data)
     
-    def smoke(self):
+    def noise(self):
         data = random.choice(['Low','Medium','High'])
         print("Smoke: {}".format(data))
-        self.client.publish("sensors/smoke",data)
+        self.client.publish("sensors/noise",data)
     
     def filament(self):
         data = round(random.uniform(1,100),1)

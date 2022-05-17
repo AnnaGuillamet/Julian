@@ -2,12 +2,11 @@ from telepot.loop import MessageLoop
 import telepot
 from notifications.channel import Channel 
 
-
 class MyBot(Channel):
-    def __init__(self, cfg=None):
-        super(MyBot,self).__init__(cfg)
-        self.token = self.cfg["telegram"]["token"]
-        self.chatId= self.cfg["telegram"]["chat_id"]
+    def __init__(self, token, chatId):
+        super(MyBot,self).__init__(token, chatId)
+        self.token = token
+        self.chatId= chatId
         self.bot = telepot.Bot(self.token)
         MessageLoop(self.bot,self.handle).run_as_thread()
         print('bot on the loop..')

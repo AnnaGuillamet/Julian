@@ -4,9 +4,8 @@ import enclosure as e
 
 class Farm(object):
     def __init__(self,cfg):
-        enclousure = e.Enclousure(cfg)
-        enclousure_Printer = e.PrinterEnclousure(enclousure)
-        #enclousure_Printer = enclousure.getPrinterEnclousure()
+        enclousure_Printer = e.PrinterEnclousure(cfg)
         print('inici julian')
         enclousure_Printer.sensorTemperatura(29.0)
+        enclousure_Printer.sensorHumidity(70)
 
