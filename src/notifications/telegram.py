@@ -20,16 +20,20 @@ class MyBot(Channel):
     def getChatId(self):
         return self.chatId
 
-    def handle(self,msg):
+    def handle(self,msg,commandOption):
         content_type, chat_type, chat_id = telepot.glance(msg)
         if content_type == 'text':
             command = msg['text']
 
-            if command == 'Open Fan':
+            if command == '/hello':
+                self.bot.sendMessage(self.chatId, "Hi, this channel is used to control a farm od 3D printers.")
+            elif command == commandOption:
                 hide_keyboard = {'hide_keyboard':True}
-                self.bot.sendMessage(self.chatId, "Fan is opened")
+                self.bot.sendMessage(self.chatId, commandOption)
+                return True
             elif command == 'Continue':
-                self.bot.sendMessage(self.chatId, "Continue")  
+                self.bot.sendMessage(self.chatId, "Continue") 
+                return False 
     
     def message(self,type,data,action):
         txt = "Hi, the {} is {}, what will you do?"

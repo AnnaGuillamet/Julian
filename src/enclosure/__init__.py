@@ -1,12 +1,12 @@
 
 
 #import sensors  ##tot el modul
-from .sensors import Sensor, TemperatureSensor, HumiditySensor, NoiseSensor, FilamentRunOutSensor
+from .sensors import Sensor, TemperatureSensor, HumiditySensor, SmokeSensor, FilamentRunOutSensor, TemperatureSensorFilament, HumiditySensorFilament
 
-from .actuadors import Actuador, StepperMotor, Fan
+from .actuadors import Actuador, StepperMotor, Fan, Gate
 
 from .enclosure import Enclousure, FilamentEnclousure, PrinterEnclousure
 
 
-__all__=["Sensor","TemperatureSensor","HumiditySensor","NoiseSensor","FilamentRunOutSensor",
-            "Actuador", "StepperMotor", "Fan", "Enclousure", "FilamentEnclousure", "PrinterEnclousure"]
+__all__=["Sensor","TemperatureSensor","HumiditySensor","SmokeSensor","FilamentRunOutSensor", "TemperatureSensorFilament", "HumiditySensorFilament",
+            "Actuador", "StepperMotor", "Fan", "Gate", "Enclousure", "FilamentEnclousure", "PrinterEnclousure"]
