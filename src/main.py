@@ -15,14 +15,8 @@ def get_config(configuration):
 bool = 0
 
 if __name__ == '__main__':
-    if bool == 0:
-        print('--Start Sensors--')
-        configuration = get_config.main(standalone_mode=False)
-        print('--Configuration: OK--') 
-        bool = 1
-            
+    print('--Start Project Julian--')
+    configuration = get_config.main(standalone_mode=False)
+    print('--Configuration: OK--') 
     farm = f.Farm(configuration)
-    print ('Execució Programa OK')
-    
-    while 1:
-        time.sleep(5)
+
