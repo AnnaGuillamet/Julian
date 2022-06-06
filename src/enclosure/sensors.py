@@ -49,12 +49,12 @@ class FilamentRunOutSensor(Sensor):
     def __init__(self):
         self.firstnotice = 30
         self.secondnotice = 20
-        self.lastnotice = 10
+        self.lastnotice = 15
 
     def filamentRunOutCheck(self,filament):
-        if filament == self.firstnotice:
-            self.msg = 'Alarm Filament-20m' 
-        elif filament < self.firstnotice and filament >= self.secondnotice:
+        if filament <= self.firstnotice and filament> self.secondnotice:
+            self.msg = 'Alarm Filament-FirstNotice' 
+        elif filament <= self.secondnotice and filament > self.lastnotice:
             self.msg = 'Alarm Filament-Manual'     
         elif filament <= self.lastnotice:
             self.msg = 'Alarm Filament-AutomaticStop'

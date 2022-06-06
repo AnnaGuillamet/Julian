@@ -6,7 +6,7 @@ from .sensors import FilamentRunOutSensor as FilamSensor
 from .sensors import TemperatureSensorFilament as TempSensorFilam
 from .sensors import HumiditySensorFilament as HumSensorFilam
 from .actuadors import Fan, StepperMotor, Gate
-import time, enum
+import enum
 
 class ActionSensor(enum.Enum):
     TemperatureEnclosure = 'Open Fan'
@@ -39,8 +39,8 @@ class FilamentAndPrinterEnclosure(Enclousure):
     #Filament Storage-Sensors
     def sensorFilament(self,filament):
         self.Filam_Notification = self.Filam.filamentRunOutCheck(filament)
-        if self.Filam_Notification == 'Alarm Filament-20':
-            self.telegram_client.getBot().sendMessage(self.chatId, "Filament alarm, 20 left")
+        if self.Filam_Notification == 'Alarm Filament-FirstNotice':
+            self.telegram_client.getBot().sendMessage(self.chatId, "Filament alarm, 30 left")
         
         elif self.Filam_Notification == 'Alarm Filament-Manual':
             self.telegram_client.message('FilamentEnclosure',filament,ActionSensor.FilamentEnclosure.value)

@@ -1,7 +1,4 @@
 
-from unittest import result
-
-
 class Actuador(object):
     pass
 

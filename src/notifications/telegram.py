@@ -31,9 +31,7 @@ class MyBot(Channel):
         if content_type == 'text':
             command = msg['text']
 
-            if command == '/help':
-                self.bot.sendMessage(self.chatId, "Don't worry, when there is an emergency we will notify you")
-            elif command == 'Open Fan' or command == 'Motor off' or command == 'Motor off and Open Fan':
+            if command == 'Open Fan' or command == 'Motor off' or command == 'Motor off and Open Fan':
                 hide_keyboard = {'hide_keyboard':True}
                 txt = "Control action applied: {}"
                 self.bot.sendMessage(self.chatId, txt.format(command), reply_markup=hide_keyboard)
@@ -48,7 +46,10 @@ class MyBot(Channel):
             elif command == 'Continue':
                 hide_keyboard = {'hide_keyboard':True}
                 self.bot.sendMessage(self.chatId, "Ok, continue printing",reply_markup=hide_keyboard) 
-    
+
+            else:
+                self.bot.sendMessage(self.chatId, "Don't worry, when there is an emergency we will notify you")
+
     def message(self,type,data,action):
         txt = "Hi, the {} is {}, what will you do?"
         show_keyboard = {'keyboard':[[action,'Continue']]}
