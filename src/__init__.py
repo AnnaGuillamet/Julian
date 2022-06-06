@@ -1,6 +1,6 @@
-from .commandlist import CommandList
-from .farm import farm
+from .farm import Farm
 from .main import main
+from .command import CommandList
 
 
-__all__=["CommandList","farm","main"]
+__all__=["Farm","main","CommandList"]

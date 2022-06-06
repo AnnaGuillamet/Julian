@@ -1,4 +1,5 @@
-from randomData import Random
-from subscribe import ClientSubcribe
+from .randomData import Random
+from .subscribeData import ClientSubscribe
 
-__all__=["Random", "ClientSubcribe"]
+
+__all__=["Random", "ClientSubscribe"]

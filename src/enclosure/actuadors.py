@@ -3,23 +3,16 @@ class Actuador(object):
     pass
 
 class StepperMotor(Actuador):
-    def controlMotor(command):
-        if command == True:
-            return "Control: Engine on"
-        elif command == False:
-            return "Control: Engine off"
+    def controlMotor():
+        return "Motor off"
 
 class Fan(Actuador):
-    def controlFan(command):
-        if command == True:
-            return "Control: Fan open"
-        elif command == False:
-            return "Control: Fan close"
+    def controlFan():
+        str1 = 'Fan Open'
+        return str1
 
 class Gate(Actuador):
-    def openGate(command):
-        if command == True:
-            return "Control: Gate open"
-        elif command == False:
-            return "Control: Gate close"
+    def openGate():
+       return "Gate open" 
+        
 

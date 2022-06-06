@@ -1,11 +1,14 @@
-#import sys
-#sys.path.append('../enclosure/')
-import enclosure as e
+import mqtt.subscribeData as sb
 
 class Farm(object):
     def __init__(self,cfg):
-        enclousure_Printer = e.PrinterEnclousure(cfg)
-        print('inici julian')
-        enclousure_Printer.sensorTemperatura(29.0)
-        enclousure_Printer.sensorHumidity(70)
+        subscribeData = sb.ClientSubscribe(cfg)
+
+        #print(dataMqtt)
+        #enclosure_check.sensorTemperatura(subcribe.pop())
+        '''enclosure_Printer.sensorHumidity(subcribe.pop())
+        enclosure_Printer.sensorSmoke(subcribe.pop())
+        enclosure_Filament.sensorFilament(subcribe.pop())
+        enclosure_Filament.sensorFilamentTemperature(subcribe.pop())
+        enclosure_Filament.sensorFilamentHumidity(subcribe.pop())'''
 

@@ -4,15 +4,18 @@ class Sensor(object):
 #Printer Enclosure-Sensors
 class TemperatureSensor(Sensor):
     def __init__(self):
-        self.maximum = 32.0
-        self.minim = 28.5
+        self.maximum = 33.0
+        self.minim = 30.5
 
     def temperatureCheck(self,temperature):
         if temperature>= self.minim and temperature<= self.maximum:
             self.msg = 'Alarm Temperature-Manual'                      
         elif temperature> self.maximum:
             self.msg = 'Alarm Temperature-Automatic'
-        return self.msg
+        else:
+            self.msg = 'Continue'
+        print(self.msg) 
+        return(self.msg)      
 
 class HumiditySensor(Sensor):
     def __init__(self):
@@ -21,7 +24,10 @@ class HumiditySensor(Sensor):
     def humidityCheck(self,humidity):
         if humidity>= self.maximum:
             self.msg = 'Alarm Humidity'                      
-        return self.msg
+        else:
+            self.msg = 'Continue' 
+        print(self.msg)
+        return(self.msg)  
 
 class SmokeSensor(Sensor):
     def __init__(self):

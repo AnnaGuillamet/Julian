@@ -24,7 +24,7 @@ class Random():
     def smoke(self):
         data = random.choice(['Low','Medium','High'])
         print("Smoke: {}".format(data))
-        self.client.publish("sensors/noise",data)
+        self.client.publish("sensors/smoke",data)
     
     #Filament Storage-Sensors
     def filament(self):
