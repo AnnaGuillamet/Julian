@@ -10,6 +10,7 @@ class MyBot(Channel):
         self.bot = telepot.Bot(self.token)
         MessageLoop(self.bot,self.handle).run_as_thread()
         print('bot on the loop..')
+        self.bot.sendMessage(self.chatId, "Hi, this channel is used to control a farm od 3D printers.")
 
     def getBot(self):
         return self.bot
@@ -22,19 +23,19 @@ class MyBot(Channel):
 
     def handle(self,msg):
         content_type, chat_type, chat_id = telepot.glance(msg)
+                
         if content_type == 'text':
             command = msg['text']
 
-            if command == '/hello':
-                self.bot.sendMessage(self.chatId, "Hi, this channel is used to control a farm od 3D printers.")
+            if command == '/help':
+                self.bot.sendMessage(self.chatId, "Don't worry, when there is an emergency we will notify you")
             elif command == 'Open Fan' or command == 'Motor off' or command == 'Motor off and Open Fan':
                 hide_keyboard = {'hide_keyboard':True}
                 txt = "Control action applied: {}"
-                self.bot.sendMessage(self.chatId, txt.format(command))
-                return True
+                self.bot.sendMessage(self.chatId, txt.format(command), reply_markup=hide_keyboard)
             elif command == 'Continue':
-                self.bot.sendMessage(self.chatId, "Ok, continue printing") 
-                return False 
+                hide_keyboard = {'hide_keyboard':True}
+                self.bot.sendMessage(self.chatId, "Ok, continue printing",reply_markup=hide_keyboard) 
     
     def message(self,type,data,action):
         txt = "Hi, the {} is {}, what will you do?"

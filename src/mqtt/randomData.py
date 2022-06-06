@@ -28,7 +28,7 @@ class Random():
     
     #Filament Storage-Sensors
     def filament(self):
-        data = round(random.uniform(1,100),1)
+        data = round(random.uniform(10,99),1)
         print("Filament: {}".format(data))
         self.client.publish("sensors/filament",data)
     
@@ -55,4 +55,4 @@ if __name__ == '__main__':
         rand.filament()
         rand.temperatureFilament()
         rand.humidityFilament()
-        time.sleep(10)
+        time.sleep(30)

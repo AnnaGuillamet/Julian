@@ -14,7 +14,7 @@ class TemperatureSensor(Sensor):
             self.msg = 'Alarm Temperature-Automatic'
         else:
             self.msg = 'Continue'
-        print(self.msg) 
+        print(f"-Result of treating the value of temperature [{temperature}]:{self.msg}") 
         return(self.msg)      
 
 class HumiditySensor(Sensor):
@@ -26,35 +26,41 @@ class HumiditySensor(Sensor):
             self.msg = 'Alarm Humidity'                      
         else:
             self.msg = 'Continue' 
-        print(self.msg)
+        print(f"-Result of treating the value of humidity [{humidity}]:{self.msg}")
         return(self.msg)  
 
 class SmokeSensor(Sensor):
     def __init__(self):
-        self.manual = 'Medium'
-        self.automatic = 'High'
+        self.manual = "'Medium'"
+        self.automatic = "'High'"
 
     def smokeCheck(self,smoke):
         if smoke == self.manual:
             self.msg = 'Alarm Smoke-Manual' 
         elif smoke == self.automatic:
-            self.msg = 'Alarm Smoke-Automatic'                     
+            self.msg = 'Alarm Smoke-Automatic' 
+        else:
+            self.msg = 'Continue' 
+        print(f"-Result of treating the value of smoke [{smoke}]:{self.msg}")                       
         return self.msg
 
 #Filament Storage-Sensors
 class FilamentRunOutSensor(Sensor):
     def __init__(self):
-        self.firstnotice = 20
-        self.secondnotice = 10
-        self.lastnotice = 5
+        self.firstnotice = 30
+        self.secondnotice = 20
+        self.lastnotice = 10
 
     def filamentRunOutCheck(self,filament):
         if filament == self.firstnotice:
-            self.msg = 'Alarm Filament-20' 
+            self.msg = 'Alarm Filament-20m' 
         elif filament < self.firstnotice and filament >= self.secondnotice:
             self.msg = 'Alarm Filament-Manual'     
         elif filament <= self.lastnotice:
-            self.msg = 'Alarm Filament-AutomaticStop'                
+            self.msg = 'Alarm Filament-AutomaticStop'
+        else:
+            self.msg = 'Continue' 
+        print(f"-Result of treating the value of filament [{filament}]:{self.msg}")                 
         return self.msg
 
 class TemperatureSensorFilament(Sensor):
@@ -64,6 +70,9 @@ class TemperatureSensorFilament(Sensor):
     def temperatureCheck(self,temperature):                  
         if temperature>= self.maximum:
             self.msg = 'Too much heat on filament'
+        else:
+            self.msg = 'Continue' 
+        print(f"-Result of treating the value of temperatureFilament [{temperature}]:{self.msg}")
         return self.msg
 
 class HumiditySensorFilament(Sensor):
@@ -73,4 +82,7 @@ class HumiditySensorFilament(Sensor):
     def humidityCheck(self,humidity):
         if humidity>= self.maximum:
             self.msg = 'Too much humidity on filament'                      
+        else:
+            self.msg = 'Continue' 
+        print(f"-Result of treating the value of humidityFilament [{humidity}]:{self.msg}\n")
         return self.msg
