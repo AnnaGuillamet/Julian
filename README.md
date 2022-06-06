@@ -31,6 +31,8 @@ En la carpeta /src podem trobar:
   /farm.py -- Hi trobarem la crida del script subscribeData.py i l'inicialitzarem
   
   /main.py -- Arxiu principal i EXECUTABLE, juntament amb el RandomData.py, on inicialitzara el projecte establint els valors de configuració. 
+  
+--------------------------------  
  
 Terminal de sortida1: [executarem main.py]
 
@@ -47,7 +49,8 @@ Obserarem que pel terminal de sortida1 s'imprimira:
 "boot on the loop.." que ens informa que el bot esta corrent
 
 Seguidament ens començara a sortir les frases "Result of treating the value [...]" que ens indicaran quin sensor esta tractant, el seu valor i l'acció que li pertoca. I, en alguns casos, la frase "--Control action applied:[...]" que ens indica si s'ha generat alguna acció de control. 
-  
+
+-------------------------------- 
   
 PD: Hola Miquel, 
 
