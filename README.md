@@ -32,7 +32,9 @@ En la carpeta /src podem trobar:
   /main.py -- Arxiu principal i EXECUTABLE, juntament amb el RandomData.py, on inicialitzara el projecte establint els valors de configuració. 
  
 Terminal de sortida1: [executarem main.py]
+
 Terminal de sortida2: [executarem randomData.py]
+
 Obserarem que pel terminal de sortida1 s'imprimira:
 "--Start Project Julian--" que ens informa del inici del programa
 "--Configuration OK--" que ens informa de que s'ha carregat correctament la configuracio del julian.yaml
