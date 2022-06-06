@@ -1,6 +1,7 @@
 from telepot.loop import MessageLoop
 import telepot
 from notifications.channel import Channel 
+from enclosure.actuadors import Fan, StepperMotor, Gate
 
 class MyBot(Channel):
     def __init__(self, token, chatId):
@@ -11,6 +12,9 @@ class MyBot(Channel):
         MessageLoop(self.bot,self.handle).run_as_thread()
         print('bot on the loop..')
         self.bot.sendMessage(self.chatId, "Hi, this channel is used to control a farm od 3D printers.")
+        self.fan = Fan(True) 
+        self.motor = StepperMotor(True) 
+        self.gate = Gate(True)
 
     def getBot(self):
         return self.bot
@@ -33,6 +37,14 @@ class MyBot(Channel):
                 hide_keyboard = {'hide_keyboard':True}
                 txt = "Control action applied: {}"
                 self.bot.sendMessage(self.chatId, txt.format(command), reply_markup=hide_keyboard)
+                if command == 'Open Fan':
+                    self.fan.controlFan() 
+                elif command == 'Motor off':
+                    self.motor.controlMotor()
+                else:
+                    self.fan.controlFan() 
+                    self.motor.controlMotor()
+
             elif command == 'Continue':
                 hide_keyboard = {'hide_keyboard':True}
                 self.bot.sendMessage(self.chatId, "Ok, continue printing",reply_markup=hide_keyboard) 

@@ -44,12 +44,13 @@ class ClientSubscribe():
             temperatureFilament = str(msg.payload)
             #print(msg.topic+" "+temperatureFilament)
             self.enclosure_check.sensorFilamentTemperature(float(temperatureFilament[2:6]))
-        
+            time.sleep(5)
+
         elif msg.topic == "sensors/humidityFilament":
             humidityFilament = str(msg.payload)
             #print(msg.topic+" "+humidityFilament)
             self.enclosure_check.sensorFilamentHumidity(float(humidityFilament[2:6]))
-
+            time.sleep(5)
 
     
     

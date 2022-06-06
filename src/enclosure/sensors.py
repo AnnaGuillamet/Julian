@@ -84,5 +84,5 @@ class HumiditySensorFilament(Sensor):
             self.msg = 'Too much humidity on filament'                      
         else:
             self.msg = 'Continue' 
-        print(f"-Result of treating the value of humidityFilament [{humidity}]:{self.msg}\n")
+        print(f"-Result of treating the value of humidityFilament [{humidity}]:{self.msg}")
         return self.msg
